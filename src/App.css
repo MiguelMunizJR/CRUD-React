@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+footer {
+  text-align: center;
+  position: absolute;
+  top: 33rem;
+  right: 5.5rem;
+  margin-top: 4rem;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  background-color: #2b2b31;
+}
+
+.App__title {
+  position: absolute;
+  top: 1rem;
+  left: 30%;
+  right: 0;
+  bottom: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #f3f3f3;
+  z-index: 1;
+}
+
+.App__container {
+  margin: 3rem auto 0;
+  padding: 1rem;
+  min-width: 55rem;
+  height: 80vh;
+  display: grid;
+  justify-items: center;
+  align-self: center;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1rem;
+  background-color: #212125;
+  border-radius: 0.5rem;
+  overflow-y: scroll;
+  z-index: 10;
+}
+
+.aside__form {
+  padding: 0.5rem 1rem;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #f3f3f3;
+  background-image: radial-gradient(
+    circle,
+    #19191f,
+    #17171c,
+    #151519,
+    #131316,
+    #111112
+  );
+  box-shadow: 2px 2px 5px rgb(8, 8, 8);
+  z-index: 10;
+}
+
+.aside__title {
+  margin: 0.5rem auto 2rem;
+  font-size: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form input {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  height: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  border-style: none;
+  box-shadow: 1px 1px 5px #0a0a0a;
+}
+
+.form__birthday {
+  margin: 0 auto;
+  width: 8rem;
+  border-radius: none;
+  cursor: pointer;
+}
+
+.form__btn {
+  margin-top: 2rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #f3f3f3;
+  background-color: #1f2555;
+  box-shadow: 2px 2px 5px #070707;
+  cursor: pointer;
+}
+
+.form__btn:hover {
+  transform: scale(1.01);
+}
+
+.card {
+  padding-bottom: 1rem;
+  width: 17rem;
+  min-height: 15rem;
+  height: fit-content;
+  text-align: center;
+  color: #f3f3f3;
+  background-image: radial-gradient(
+    circle,
+    #19191f,
+    #17171c,
+    #151519,
+    #131316,
+    #111112
+  );
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 5px #000000;
+}
+
+.card__name {
+  padding: 0.2rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  background-color: #1f2555;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card__list {
+  list-style: none;
+}
+
+.card__email {
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 200;
+  color: #cccccc;
+}
+
+.fa-envelope {
+  margin-right: 0.4rem;
+}
+
+.card__email span {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #f3f3f3;
+}
+
+.card__birthday {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 200;
+  color: #cccccc;
+}
+
+.fa-cake-candles {
+  margin-right: 0.4rem;
+}
+
+.card__birthday span {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #f3f3f3;
+}
+
+.card__btns {
+  margin-top: 1.5rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card__btn {
+  width: 3rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px #131313;
+  cursor: pointer;
+}
+
+.card__btn:hover {
+  transform: scale(1.02);
+}
+
+.delete {
+  background-color: #ac1515;
+}
+
+.fa-trash {
+  font-size: 1rem;
+  color: #f3f3f3;
+}
+
+.update {
+  background-color: #1152a7;
+}
+
+.fa-pencil {
+  font-size: 1rem;
+  color: #f3f3f3;
+}
+
+.footer {
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #838383;
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2b31;
+}
+
+.loading__circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 5px solid #bdbdbdb4;
+  border-top-color: transparent;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilo de barra de desplazamiento */
+.App__container::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.App__container::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.App__container::-webkit-scrollbar-button:increment,
+.App__container::-webkit-scrollbar-button {
+  display: none;
+}
+
+.App__container::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.App__container::-webkit-scrollbar-thumb {
+  background-color: #4d4d4d;
+  border-radius: 20px;
+  border: 2px solid #212125;
+}
