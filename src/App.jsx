@@ -51,24 +51,34 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  console.log(users);
+  const formSlide = () => {
+    const form = document.querySelector(".aside__form");
+    if (form.style.display === "flex") {
+      form.style.display = "none";
+    } else {
+      form.style.display = "flex";
+    }
+  };
 
   if (isLoading) {
     return <Loading />;
   } else {
     return (
       <section className="App">
-        <h1 className="App__title">CRUD | Usuarios</h1>
-        <div className="App__container">
-          {users?.map((user) => (
-            <UsersList
-              key={user.id}
-              user={user}
-              getAllUsers={getAllUsers}
-              setUpdateUser={setUpdateUser}
-            />
-          ))}
-        </div>
+        <article className="App__cards">
+          <h1 className="App__title">CRUD | Usuarios</h1>
+          <button onClick={formSlide} className='App__btn'>+ Create new user</button>
+          <div className="App__container">
+            {users?.map((user) => (
+              <UsersList
+                key={user.id}
+                user={user}
+                getAllUsers={getAllUsers}
+                setUpdateUser={setUpdateUser}
+              />
+            ))}
+          </div>
+        </article>
         <UsersForm
           createUser={createUser}
           getAllUsers={getAllUsers}

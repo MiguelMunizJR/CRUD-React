@@ -2,46 +2,72 @@
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
-  scrollbar-color: blue orange;
 }
 
 footer {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  position: absolute;
-  top: 33rem;
-  right: 5.5rem;
-  margin-top: 4rem;
+  position: relative;
+  top: 3rem;
 }
 
 .App {
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  justify-content: center;
   font-family: "Poppins", sans-serif;
   background-color: #2b2b31;
 }
 
+.App__cards {
+  width: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .App__title {
-  position: absolute;
-  top: 1rem;
-  left: 30%;
-  right: 0;
-  bottom: 0;
-  font-size: 2rem;
+  margin-top: 2rem;
+  width: fit-content;
+  height: fit-content;
+  font-size: 2.2rem;
   font-weight: 600;
   color: #f3f3f3;
   z-index: 1;
 }
 
+.App__btn {
+  margin-top: 1rem;
+  width: 8rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  color: #f3f3f3;
+  background-color: #1152a7;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 5px #111;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.App__btn:hover {
+  transform: scale(1.03);
+  transition: 0.05s;
+}
+
 .App__container {
-  margin: 3rem auto 0;
-  padding: 1rem;
-  min-width: 55rem;
-  height: 80vh;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  width: 80vw;
+  height: 25rem;
   display: grid;
   justify-items: center;
   align-self: center;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 1rem;
+  row-gap: 2rem;
   background-color: #212125;
   border-radius: 0.5rem;
   overflow-y: scroll;
@@ -49,10 +75,13 @@ footer {
 }
 
 .aside__form {
-  padding: 0.5rem 1rem;
-  width: 25vw;
-  display: flex;
+  min-width: 20vw;
+  width: 20rem;
+  height: 100vh;
+  display: none;
   flex-direction: column;
+  position: absolute;
+  right: 0;
   text-align: center;
   color: #f3f3f3;
   background-image: radial-gradient(
@@ -63,8 +92,8 @@ footer {
     #131316,
     #111112
   );
-  box-shadow: 2px 2px 5px rgb(8, 8, 8);
-  z-index: 10;
+  filter: drop-shadow(2px 2px 5px #000);
+  z-index: 100;
 }
 
 .aside__title {
@@ -78,9 +107,10 @@ footer {
   gap: 0.5rem;
 }
 
-.form input {
-  margin-bottom: 0.5rem;
+.form__input {
+  margin: 0 auto;
   padding: 0.5rem;
+  width: 15rem;
   height: 1rem;
   text-align: center;
   font-size: 1rem;
@@ -91,13 +121,18 @@ footer {
 
 .form__birthday {
   margin: 0 auto;
+  padding: 0.5rem;
   width: 8rem;
-  border-radius: none;
+  height: 1rem;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  text-align: center;
   cursor: pointer;
 }
 
 .form__btn {
-  margin-top: 2rem;
+  margin: 2rem auto 0;
+  width: 15rem;
   height: 2.5rem;
   border: none;
   border-radius: 0.3rem;
@@ -240,6 +275,72 @@ footer {
   border-top-color: transparent;
 
   animation: spin 1s linear infinite;
+}
+
+/* MEDIAQUERIES */
+@media screen and (min-width: 1680px) {
+  .App__container {
+    width: 70vw;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .App__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form__input {
+    width: 9rem;
+  }
+
+  .form__birthday {
+    width: 5rem;
+  }
+
+  .form__btn {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .App__container {
+    grid-template-columns: 1fr;
+  }
+
+  .aside__form {
+    width: 15rem;
+  }
+
+  .form__input {
+    width: 6rem;
+  }
+
+  .form__birthday {
+    width: 5rem;
+  }
+
+  .form__btn {
+    width: 5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App__container {
+    grid-template-columns: 1fr;
+  }
+
+  .aside__form {
+    width: 10rem;
+  }
+
+  .form__input {
+    width: 5rem;
+  }
+
+  .card {
+    width: 12rem;
+  }
 }
 
 @keyframes spin {

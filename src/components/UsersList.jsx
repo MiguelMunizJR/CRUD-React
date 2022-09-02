@@ -11,6 +11,8 @@ const UsersList = ({ user, getAllUsers, setUpdateUser }) => {
   };
 
   const updateUser = () => {
+    const form = document.querySelector(".aside__form");
+    form.style.display = "flex";
     setUpdateUser(user);
   };
 
