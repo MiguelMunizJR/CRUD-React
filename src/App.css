@@ -289,18 +289,6 @@ footer {
   .App__container {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .form__input {
-    width: 9rem;
-  }
-
-  .form__birthday {
-    width: 5rem;
-  }
-
-  .form__btn {
-    width: 8rem;
-  }
 }
 
 @media screen and (max-width: 730px) {
@@ -313,15 +301,15 @@ footer {
   }
 
   .form__input {
-    width: 6rem;
+    width: 11rem;
   }
 
   .form__birthday {
-    width: 5rem;
+    width: 8rem;
   }
 
   .form__btn {
-    width: 5rem;
+    width: 10rem;
   }
 }
 
@@ -335,7 +323,15 @@ footer {
   }
 
   .form__input {
+    width: 7rem;
+  }
+
+  .form__birthday {
     width: 5rem;
+  }
+
+  .form__btn {
+    width: 7rem;
   }
 
   .card {
