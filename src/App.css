@@ -294,6 +294,14 @@ footer {
 }
 
 @media screen and (max-width: 730px) {
+  .App {
+    align-items: flex-start;
+  }
+
+  .App__cards {
+    justify-content: flex-start;
+  }
+
   .App__container {
     grid-template-columns: 1fr;
   }
