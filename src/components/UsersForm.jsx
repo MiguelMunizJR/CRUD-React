@@ -40,9 +40,9 @@ const UsersForm = ({ createUser, getAllUsers, updateUser, setUpdateUser }) => {
 
   const resetForm = () => {
     reset(defaultValues);
-    setUpdateUser(null)
-    const clearBtn = document.querySelector('.form__btn-clear')
-    clearBtn.style.display = 'none';
+    setUpdateUser(null);
+    const clearBtn = document.querySelector(".form__btn-clear");
+    clearBtn.style.display = "none";
   };
 
   return (
@@ -100,7 +100,11 @@ const UsersForm = ({ createUser, getAllUsers, updateUser, setUpdateUser }) => {
         <button className="form__btn">
           {updateUser ? "Update user" : "Create user"}
         </button>
-        {updateUser ? <button className="form__btn-clear" onClick={resetForm}>Clear</button> : undefined}
+        {updateUser ? (
+          <button className="form__btn-clear" onClick={resetForm}>
+            Clear
+          </button>
+        ) : undefined}
       </form>
       <footer>
         <h5 className="footer">Miguel Muñiz | Academlo</h5>

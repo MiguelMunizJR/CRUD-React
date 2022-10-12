@@ -52,12 +52,15 @@ function App() {
   };
 
   const formSlide = () => {
-    const form = document.querySelector(".aside__form");
-    if (form.style.display === "flex") {
-      form.style.display = "none";
-    } else {
-      form.style.display = "flex";
-    }
+    const sidebar = document.querySelector(".aside__form").classList;
+    sidebar.toggle("active");
+
+    // const form = document.querySelector(".aside__form");
+    // if (form.style.display === "flex") {
+    //   form.style.display = "none";
+    // } else {
+    //   form.style.display = "flex";
+    // }
   };
 
   if (isLoading) {
@@ -67,7 +70,9 @@ function App() {
       <section className="App">
         <article className="App__cards">
           <h1 className="App__title">CRUD | Usuarios</h1>
-          <button onClick={formSlide} className='App__btn'>+ Create new user</button>
+          <button onClick={formSlide} className="App__btn">
+            + Create new user
+          </button>
           <div className="App__container">
             {users?.map((user) => (
               <UsersList
