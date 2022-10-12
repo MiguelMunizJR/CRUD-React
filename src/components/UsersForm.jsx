@@ -20,7 +20,6 @@ const UsersForm = ({ createUser, getAllUsers, updateUser, setUpdateUser }) => {
   }, [updateUser]);
 
   const submit = (data) => {
-    const form = document.querySelector(".aside__form");
     if (updateUser) {
       const URL = `https://users-crud1.herokuapp.com/users/${updateUser.id}/`;
 
@@ -33,17 +32,24 @@ const UsersForm = ({ createUser, getAllUsers, updateUser, setUpdateUser }) => {
         })
         .catch((err) => console.log(err));
       setUpdateUser();
-      form.style.display = "none";
     } else {
       createUser(data);
       reset(defaultValues);
-      form.style.display = "none";
     }
+  };
+
+  const resetForm = () => {
+    reset(defaultValues);
+    setUpdateUser(null)
+    const clearBtn = document.querySelector('.form__btn-clear')
+    clearBtn.style.display = 'none';
   };
 
   return (
     <aside className="aside__form">
-      <h2 className="aside__title">New User</h2>
+      <h2 className="aside__title">
+        {updateUser ? "Update user" : "Create user"}
+      </h2>
       <form className="form" onSubmit={handleSubmit(submit)}>
         <label htmlFor="first_name">First name: </label>
         <input
@@ -94,6 +100,7 @@ const UsersForm = ({ createUser, getAllUsers, updateUser, setUpdateUser }) => {
         <button className="form__btn">
           {updateUser ? "Update user" : "Create user"}
         </button>
+        {updateUser ? <button className="form__btn-clear" onClick={resetForm}>Clear</button> : undefined}
       </form>
       <footer>
         <h5 className="footer">Miguel Muñiz | Academlo</h5>
