@@ -87,14 +87,14 @@ const UsersForm = ({ createUser, getAllUsers, updateUser, setUpdateUser }) => {
           id="password"
           required
         />
-        <label htmlFor="birthday">Birthday: </label>
+        <label htmlFor="birthday" className="birthday__title">Birthday: </label>
         <input
           {...register("birthday")}
           className="form__birthday"
           type="date"
           id="birthday"
           min="1960-01-01"
-          max="2020-01-01"
+          max="2022-01-01"
           required
         />
         <button className="form__btn">
@@ -106,9 +106,6 @@ const UsersForm = ({ createUser, getAllUsers, updateUser, setUpdateUser }) => {
           </button>
         ) : undefined}
       </form>
-      <footer>
-        <h5 className="footer">Miguel Muñiz | Academlo</h5>
-      </footer>
     </aside>
   );
 };

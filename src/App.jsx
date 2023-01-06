@@ -8,7 +8,7 @@ import UsersList from "./components/UsersList";
 function App() {
   const [users, setUsers] = useState();
   const [updateUser, setUpdateUser] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const URL = "https://users-crud1.herokuapp.com/users/";
@@ -17,21 +17,19 @@ function App() {
       .get(URL)
       .then((res) => {
         setUsers(res.data);
-        loadingTimeout();
+        // loadingTimeout();
       })
       .catch((err) => console.log(err));
   }, []);
 
-  let intervalLoading;
+  // const loadingTimeout = () => {
+  //   intervalLoading = window.setTimeout(changeLoading, 1300);
+  // };
 
-  const loadingTimeout = () => {
-    intervalLoading = window.setTimeout(changeLoading, 1300);
-  };
-
-  const changeLoading = () => {
-    setIsLoading(false);
-    intervalLoading = window.clearTimeout();
-  };
+  // const changeLoading = () => {
+  //   setIsLoading(false);
+  //   intervalLoading = window.clearTimeout();
+  // };
 
   const getAllUsers = () => {
     const URL = "https://users-crud1.herokuapp.com/users/";
@@ -54,13 +52,6 @@ function App() {
   const formSlide = () => {
     const sidebar = document.querySelector(".aside__form").classList;
     sidebar.toggle("active");
-
-    // const form = document.querySelector(".aside__form");
-    // if (form.style.display === "flex") {
-    //   form.style.display = "none";
-    // } else {
-    //   form.style.display = "flex";
-    // }
   };
 
   if (isLoading) {
@@ -73,17 +64,17 @@ function App() {
           <button onClick={formSlide} className="App__btn">
             + Create new user
           </button>
-          <div className="App__container">
-            {users?.map((user) => (
-              <UsersList
-                key={user.id}
-                user={user}
-                getAllUsers={getAllUsers}
-                setUpdateUser={setUpdateUser}
-              />
-            ))}
-          </div>
         </article>
+        <div className="App__container">
+          {users?.map((user) => (
+            <UsersList
+              key={user.id}
+              user={user}
+              getAllUsers={getAllUsers}
+              setUpdateUser={setUpdateUser}
+            />
+          ))}
+        </div>
         <UsersForm
           createUser={createUser}
           getAllUsers={getAllUsers}

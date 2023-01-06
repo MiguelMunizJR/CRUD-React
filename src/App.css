@@ -4,85 +4,78 @@
   scrollbar-width: thin;
 }
 
-footer {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  position: relative;
-  top: 2rem;
-}
-
 .App {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-  background-color: #2b2b31;
-}
-
-.App__cards {
-  width: auto;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(
+    to right,
+    #2b3036,
+    #2a3746,
+    #23465e
+  );
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+
+.App__cards {
+  margin-top: 1.5rem;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .App__title {
-  margin-top: 2rem;
-  width: fit-content;
-  height: fit-content;
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 300;
   color: #f3f3f3;
-  z-index: 1;
 }
 
 .App__btn {
-  margin-top: 1rem;
-  width: 8rem;
-  height: 2rem;
+  padding: 0.5rem;
   font-size: 0.9rem;
   color: #f3f3f3;
-  background-color: #1152a7;
+  background-color: #1842ce;
   border: none;
-  border-radius: 0.5rem;
-  box-shadow: 2px 2px 5px #111;
+  border-radius: 0.2rem;
+  box-shadow: #00000033 0px 7px 29px 0px;
   cursor: pointer;
   z-index: 100;
 }
 
 .App__btn:hover {
-  transform: scale(1.03);
-  transition: 0.05s;
+  box-shadow: #0c0c0c59 0px 5px 15px;
+  transition: 0.3s;
 }
 
 .App__container {
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   padding: 1rem 0;
-  width: 80vw;
-  height: 25rem;
+  width: 95%;
+  height: 78%;
   display: grid;
   justify-items: center;
   align-self: center;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 2rem;
-  background-color: #212125;
-  border-radius: 0.5rem;
+  background-color: #2121256e;
+  border-radius: 0.3rem;
   overflow-y: scroll;
   z-index: 10;
 }
 
 .aside__form {
-  width: 320px;
-  height: 100%;
-  position: fixed;
+  width: 22rem;
+  height: max-content;
+  position: absolute;
   top: 0;
-  right: -320px;
-  display: flex;
+  right: 0;
+  left: 0;
+  bottom: 10rem;
+  display: none;
   flex-direction: column;
   text-align: center;
   color: #f3f3f3;
@@ -94,30 +87,32 @@ footer {
     #131316,
     #111112
   );
-  filter: drop-shadow(2px 2px 5px #000);
-  z-index: 500;
+  box-shadow: 16px 20px 15px -3px rgba(0,0,0,0.1);
   transition: all 0.2s;
 }
 
 .aside__form.active {
-  width: 320px;
-  height: 100vh;
-  position: fixed;
+  padding: 1rem;
+  width: 20rem;
+  height: max-content;
+  position: absolute;
   top: 0;
   right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
   display: flex;
   flex-direction: column;
   text-align: center;
   color: #f3f3f3;
-  background-image: radial-gradient(
-    circle,
-    #19191f,
-    #17171c,
-    #151519,
-    #131316,
-    #111112
+  border-radius: .3rem;
+  background-image: linear-gradient(
+    to bottom,
+    #1a1a1bd7,
+    #1b2025ce,
+    #151c20c0
   );
-  filter: drop-shadow(2px 2px 5px #000);
+  box-shadow: 16px 20px 15px -3px rgba(0,0,0,0.1);
   z-index: 500;
   transition: all 0.3s;
 }
@@ -125,24 +120,39 @@ footer {
 .aside__title {
   margin: 0.5rem auto 2rem;
   font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .form {
+  margin: 0 auto;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  text-align: start;
+  font-size: 0.95rem;
+  gap: 0.4rem;
+}
+
+.form label {
+  margin-top: 0.3rem;
 }
 
 .form__input {
-  margin: 0 auto;
+  margin: 0 auto 0.2rem;
   padding: 0.5rem;
-  width: 15rem;
+  width: 100%;
   height: 1rem;
   text-align: center;
   font-size: 1rem;
-  border-radius: 0.8rem;
-  border-style: none;
+  border: none;
+  border-radius: 0.3rem;
+  outline: none;
   box-shadow: 1px 1px 5px #0a0a0a;
+}
+
+.birthday__title {
+  margin-top: 0.3rem;
+  text-align: center;
 }
 
 .form__birthday {
@@ -150,28 +160,26 @@ footer {
   padding: 0.5rem;
   width: 8rem;
   height: 1rem;
-  border-radius: 0.8rem;
+  border: none;
+  border-radius: 0.3rem;
   font-size: 1rem;
   text-align: center;
+  outline: none;
   cursor: pointer;
 }
 
 .form__btn {
-  margin: 1.5rem auto 0;
-  width: 15rem;
+  margin: 1.4rem auto;
+  width: 100%;
   height: 2.5rem;
   border: none;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
   font-size: 1rem;
   font-weight: 400;
   color: #f3f3f3;
   background-color: #1f2555;
   box-shadow: 2px 2px 5px #070707;
   cursor: pointer;
-}
-
-.form__btn:hover {
-  transform: scale(1.01);
 }
 
 .form__btn-clear {
